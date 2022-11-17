@@ -43,7 +43,7 @@ namespace UnitTestBing
         {
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(appURL2 + "/");
-            driver.FindElement(By.XPath("(//div[@class='card mt-4 top-card'])[1]")).Click();
+            driver.FindElement(By.XPath("//h5[normalize-space()='Elements']")).Click();
             driver.FindElement(By.XPath("(//li[@id='item-0'])[1]")).Click();
             driver.FindElement(By.XPath("//input[@id='userName']")).SendKeys("Daniel");
             driver.FindElement(By.XPath("//input[@id='userEmail']")).SendKeys("Test@Gmail.com");
