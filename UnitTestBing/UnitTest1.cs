@@ -74,7 +74,7 @@ namespace UnitTestBing
         public void SetupTest()
         {
             appURL = "http://www.bing.com/";
-            appURL2 = "https://demoqa.com";
+            
             
 
             string browser = "Chrome";
