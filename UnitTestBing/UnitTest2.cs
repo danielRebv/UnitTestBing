@@ -26,7 +26,7 @@ namespace UnitTestBing
             driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(appURL + "/");
             driver.FindElement(By.XPath("(//a[@class='elementor-item'][normalize-space()='CONTACTO'])[1]")).Click();
-            driver.FindElement(By.XPath("//input[@id='form-field-name']")).SendKeys("Daniel");
+           // driver.FindElement(By.XPath("//input[@id='form-field-name']")).SendKeys("Daniel");
             driver.FindElement(By.XPath("//input[@id='form-field-email']")).SendKeys("Test@Gmail.com");
             driver.FindElement(By.XPath("//input[@id='form-field-phone']")).SendKeys("+56966238582");
             driver.FindElement(By.XPath("//input[@id='form-field-field_bb48715']")).SendKeys("Chile");
