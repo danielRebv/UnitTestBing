@@ -17,6 +17,7 @@ namespace UnitTestBing
         private TestContext testContextInstance;
         private IWebDriver driver;
         private string appURL;
+        private string appURL2;
 
         public UnitTest1()
         {
@@ -28,11 +29,29 @@ namespace UnitTestBing
         [TestCategory("Chrome")]
         public void TheBingSearchTest()
         {
+            driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(appURL + "/");
             driver.FindElement(By.Id("sb_form_q")).SendKeys("Azure Pipelines");
             driver.FindElement(By.XPath("//label[@id='search_icon']//*[name()='svg']")).Click();
             driver.FindElement(By.XPath("//a[contains(text(),'What is Azure Pipelines? - Azure Pipelines | Micro')]")).Click();
             Assert.IsTrue(driver.Title.Contains("Azure Pipelines"), "Verified title of the page");
+        }
+
+        [TestMethod]
+        [TestCategory("Chrome")]
+        public void SearchTestQA()
+        {
+            driver.Manage().Window.Maximize();
+            driver.Navigate().GoToUrl(appURL2 + "/");
+            driver.FindElement(By.XPath("(//div[@class='card mt-4 top-card'])[1]")).Click();
+            driver.FindElement(By.XPath("(//li[@id='item-0'])[1]")).Click();
+            driver.FindElement(By.XPath("//input[@id='userName']")).SendKeys("Daniel");
+            driver.FindElement(By.XPath("//input[@id='userEmail']")).SendKeys("Test@Gmail.com");
+            driver.FindElement(By.XPath("//textarea[@id='currentAddress']")).SendKeys("123 Springfield");
+            driver.FindElement(By.XPath("//textarea[@id='permanentAddress']")).SendKeys("Fake Adress 123");
+            driver.FindElement(By.XPath("//button[@id='submit']")).Click();
+           
+            
         }
 
         /// <summary>
@@ -55,6 +74,8 @@ namespace UnitTestBing
         public void SetupTest()
         {
             appURL = "http://www.bing.com/";
+            appURL2 = "https://demoqa.com";
+            
 
             string browser = "Chrome";
             switch (browser)
@@ -78,7 +99,7 @@ namespace UnitTestBing
         [TestCleanup()]
         public void MyTestCleanup()
         {
-            driver.Quit();
+            //driver.Quit();
         }
     }
 }
