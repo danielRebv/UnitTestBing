@@ -29,7 +29,7 @@ namespace UnitTestBing
         [TestCategory("Chrome")]
         public void TheBingSearchTest()
         {
-            driver.Manage().Window.Maximize();
+            //driver.Manage().Window.Maximize();
             driver.Navigate().GoToUrl(appURL + "/");
             driver.FindElement(By.Id("sb_form_q")).SendKeys("Azure Pipelines");
             driver.FindElement(By.XPath("//label[@id='search_icon']//*[name()='svg']")).Click();
